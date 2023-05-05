@@ -1,5 +1,7 @@
 package com.tinkov.remindertmbot.entity;
 
+import org.springframework.lang.Nullable;
+
 import javax.persistence.*;
 import java.time.LocalDateTime;
 
@@ -9,8 +11,11 @@ public class NotificationTask {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    @Column(nullable = false)
     private String message;
+    @Column(name = "chat_id", nullable = false)
     private long chatId;
+    @Column(name = "notification_date_time", nullable = false)
     private LocalDateTime notificationDateTime;
     @OneToOne
     private User user;
